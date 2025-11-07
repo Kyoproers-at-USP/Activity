@@ -1,5 +1,5 @@
 /*アルゴリズムと工夫点(Five Variables/CPU: 1 ms Memory: 3876 KB  Length: 367 B)
-何番目の値化を別で保持して，順番に値を受け取る処理を書けばよい．
+何番目の値かを別で保持して，順番に値を受け取る処理を書けばよい．
 */
 #include<iostream>
 #include<cassert>
