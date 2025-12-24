@@ -1,34 +1,40 @@
-/*アルゴリズムと工夫点(Tombola/CPU: 1 ms Memory: 3984 KB  Length: 669 B)
-行ごとに整数ごとの数を保持して置けば実装が少し楽．
-*/
-#include<iostream>
-#include<vector>
-#include<cassert>
-#define rep(i,n) for(i=0;i<(int)(n);i++)
-#define MAX_A 90
-using namespace std;
-typedef long long ll;
-typedef unsigned long long ull;
+#include <iostream>
+#include <vector>
 
-int h,w,n;
+using namespace std;
 
 int main(){
-    int i,j;
-    scanf("%d%d%d", &h, &w, &n);
-    vector<vector<int> > row_to_cnt(h, vector<int>(MAX_A, 0));
-    vector<int> cnt(h, 0);
-    rep(i,h)rep(j,w){
-        int a;
-        scanf("%d", &a);a--;
-        row_to_cnt[i][a]++;
+    int h,w,n;
+    cin >> h >> w >> n;
+    
+    vector<vector<int>> a(h,vector<int>(w));
+    for(int i = 0 ; i < h ; i++){
+        for(int j = 0 ; j < w ; j++){
+            cin >> a.at(i).at(j);
+        }
     }
-    while(n--){
-        int b;
-        scanf("%d", &b);b--;
-        rep(i,h)cnt[i] += row_to_cnt[i][b];
+    
+    vector<int> b(n);
+    for(int i = 0 ; i < n ; i++){
+        cin >> b.at(i);
     }
-    j = 0;
-    rep(i,h)j = max(j, cnt[i]);
-    printf("%d\n", j);
-    return 0;
+
+    int shout_max = 0;
+
+    for(int i = 0 ; i < h ; i++){
+        int shout_num = 0;
+        for(int j = 0 ; j < w ; j++){
+            for(int k = 0 ; k < n ; k++){
+                if(a.at(i).at(j) == b.at(k)){
+                    shout_num++;
+                }
+            }
+            if(shout_num > shout_max){
+                shout_max = shout_num;
+            }
+        }
+    }
+
+    cout << shout_max << endl;
+
 }
