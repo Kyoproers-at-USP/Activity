@@ -1,18 +1,15 @@
-/*アルゴリズムと工夫点(Octave/CPU: 1 ms Memory: 3896 KB  Length: 278 B)
-X * 2 ^ (Y) を出力する．
-*/
-#include<iostream>
-#include<cassert>
-#define rep(i,n) for(i=0;i<(int)(n);i++)
-using namespace std;
-typedef long long ll;
-typedef unsigned long long ull;
+#include <iostream>
 
-int x, y;
+using namespace std;
 
 int main(){
-    scanf("%d%d", &x, &y);
-    while(y--)x *= 2;
-    printf("%d\n", x);
-    return 0;
+    int x , y;
+
+    cin >> x >> y;
+
+    int freq = 0;
+    for(int i = 0 ; i < y ; i++){
+        x *= 2;
+    }
+    cout << x << endl;
 }
