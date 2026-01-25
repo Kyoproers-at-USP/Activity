@@ -1,19 +1,22 @@
-/*アルゴリズムと工夫点(Count ./CPU: 1 ms Memory: 3908 KB  Length: 311 B)
-そのまま解く．
-*/
-#include<iostream>
-#include<cassert>
-#define rep(i,n) for(i=0;i<(int)(n);i++)
-using namespace std;
-typedef long long ll;
-typedef unsigned long long ull;
+#include <iostream>
+#include <vector>
+#include <math.h>
+#include <string>
 
-string s;
+using namespace std;
+
+#define rep(i,n) for(int i = 0 ; i < (int)(n) ; i++)
 
 int main(){
-    int ans = 0;
+    string s;
     cin >> s;
-    for(char c : s)ans += c == 'i' || c == 'j';
-    printf("%d\n", ans);
-    return 0;
+    int num_dot = 0;
+    
+    rep(i,s.length()){
+        if(s.at(i) == 'i' || s.at(i) == 'j'){
+            num_dot++;
+        }
+    }
+
+    cout << num_dot << endl;
 }
