@@ -1,17 +1,20 @@
-/*アルゴリズムと工夫点(Repdigit/CPU: 2 ms Memory: 3652 KB  Length: 284 B)
-文字列として受け取ると判定が楽．
-*/
-#include<iostream>
-#include<cassert>
-#define rep(i,n) for(i=0;i<(int)(n);i++)
-using namespace std;
-typedef long long ll;
-typedef unsigned long long ull;
+#include <iostream>
+#include <vector>
+#include <math.h>
+#include <string>
 
-string n;
+using namespace std;
+
+#define rep(i,n) for(int i = 0 ; i < (int)(n) ; i++)
 
 int main(){
-    cin >> n;
-    printf("%s\n", n[0] == n[1] && n[1] == n[2] ? "Yes" : "No");
-    return 0;
+    string s ;
+    cin >> s;
+
+    if(s.at(0) == s.at(1) && s.at(1) == s.at(2)){
+        cout << "Yes" << endl;
+        return 0;
+    }
+
+    cout << "No" << endl;
 }
