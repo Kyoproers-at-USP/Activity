@@ -1,17 +1,14 @@
-/*アルゴリズムと工夫点(/CPU:  ms Memory:  KB  Length:  B)
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <string.h>
 
-*/
-#include<iostream>
-#include<cassert>
-#define rep(i,n) for(i=0;i<(int)(n);i++)
 using namespace std;
-typedef long long ll;
-typedef unsigned long long ull;
 
-string s;
+#define rep(i,n) for(int i = 0 ; i < (int)(n) ; i++)
 
 int main(){
+    string s ;
     cin >> s;
-    printf("%s\n", s[0] == s[s.length() - 1] ? "Yes" : "No");
-    return 0;
+    cout << (s.at(0) == s.at(s.length() - 1) ? "Yes" : "No") << endl;
 }
