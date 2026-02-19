@@ -1,5 +1,9 @@
-/*アルゴリズムと工夫点(/CPU:  ms Memory:  KB  Length:  B)
-
+/*アルゴリズムと工夫点(Sugoroku Destination/CPU: 69 ms Memory: 9000 KB  Length: 841 B)
+BFS で解く．
+各マスを頂点とし，マスからマスへの移動を有向辺で表すと，funcional graph となる．
+また辺の方向も一定であるため，小さい番号のマスからBFSを始め，到達できた頂点群を同一グループとして扱い，
+グループごとにスタートした時の最終到着点を求めればよい．
+最悪計算量は，O(N) < 10 ^ 7 となり高速．
 */
 #include<iostream>
 #include<vector>
