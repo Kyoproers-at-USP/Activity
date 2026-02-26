@@ -1,34 +1,38 @@
-/*アルゴリズムと工夫点(Greedy Draft/CPU: 2 ms Memory: 3928 KB  Length: 705 B)
-各ジュースが選ばれているか否かを管理し，シミュレーションして解く．
-*/
-#include<iostream>
-#include<vector>
-#include<cassert>
-#define rep(i,n) for(i=0;i<(int)(n);i++)
-using namespace std;
-typedef long long ll;
-typedef unsigned long long ull;
+#include <iostream>
+#include <algorithm>
+#include <string>
+#include <vector>
 
-int n, m;
+#define rep(i,n) for(int i = 0 ; i < (int)(n) ; i++)
+
+using namespace std;
 
 int main(){
-    int i, j;
-    scanf("%d%d", &n, &m);
-    vector<bool> is_juice_exist(m, true);
-    rep(i, n){
-        int l;
-        bool selected = false;
-        scanf("%d", &l);
-        while(l--){
-            int x;
-            scanf("%d", &x);x--;
-            if(!selected && is_juice_exist[x]){
-                is_juice_exist[x] = false;
-                selected = true;
-                printf("%d\n", x + 1);
+    int n , m;
+    cin >> n >> m;
+
+    vector<int> ans(n);
+
+    vector<int> L(n);
+    vector<bool> choosed_drink(m+1,false);
+    choosed_drink.at(0) = true;
+    rep(i,n){
+        cin >> L.at(i);
+        vector<int> X(L.at(i));
+
+        rep(j,L.at(i)){
+            cin >> X.at(j) ;
+        }
+        rep(j, L.at(i)){
+            if(choosed_drink.at(X.at(j)) == false){
+                choosed_drink.at(X.at(j)) = true;
+                ans.at(i) = X.at(j);
+                break;
             }
         }
-        if(!selected)puts("0");
     }
-    return 0;
+
+    for(int i = 0 ; i < n ; i++){
+        cout << ans.at(i) << endl;
+    }
 }
