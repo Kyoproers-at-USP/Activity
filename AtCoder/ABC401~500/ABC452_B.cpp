@@ -1,27 +1,30 @@
-/*アルゴリズムと工夫点(Draw Frame/CPU: 2 ms Memory: 3864 KB  Length: 528 B)
-2種のWマスからなる1行を保持し，適切に出力すればよい．
-*/
-#include<iostream>
-#include<cassert>
-#define rep(i, n) for(i = 0;i < (int)(n);i++)
+// AtCoder template
+#include <iostream>
+#include <string>
+#include <vector>
 using namespace std;
-typedef long long ll;
-typedef unsigned long long ull;
 
-int h, w;
+#define rep(i,n) for(int i = 0 ; i < (int)(n) ; i++)
 
 int main(){
-    int i, j;
-    scanf("%d%d", &h, &w);
-    string black_line = "";
-    rep(i, w)black_line += "#";
-    
-    string normal_line = "#";
-    rep(i, w - 2)normal_line += ".";
-    normal_line += "#";
+    int h,w;
+    cin >> h >> w;
 
-    cout << black_line << '\n';
-    rep(i, h - 2)cout << normal_line << '\n';
-    cout << black_line << '\n';
-    return 0;
+    rep(i,w){
+        cout << '#' ;
+    }
+    cout << endl;
+
+    rep(i,h-2){
+        cout << '#';
+        rep(j,w-2){
+            cout << '.';
+        }
+        cout << '#' << endl;
+    }
+
+    rep(i,w){
+        cout << '#' ;
+    }
+    cout << endl;
 }
