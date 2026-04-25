@@ -1,17 +1,14 @@
-/*アルゴリズムと工夫点(Closed interval/CPU: 1 ms Memory: 3868 KB  Length: 268 B)
-そのままやる．
-*/
-#include<iostream>
-#include<cassert>
-#define rep(i, n) for(i = 0;i < (int)(n);i++)
+// AtCoder template
+#include <iostream>
+#include <string>
+#include <vector>
 using namespace std;
-typedef long long ll;
-typedef unsigned long long ull;
 
-int l, r;
+#define rep(i,n) for(int i = 0 ; i < (int)(n) ; i++)
 
 int main(){
-    scanf("%d%d", &l, &r);
-    printf("%d\n", r - l + 1);
-    return 0;
+    int l , r;
+    cin >> l >> r;
+
+    cout << r - l + 1 << endl;
 }
