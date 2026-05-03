@@ -1,39 +1,42 @@
-/*アルゴリズムと工夫点(Spiral Galaxy/CPU: 1 ms Memory: 3976 KB  Length: 829 B)
-あり得る長方形全てについて，点対称かどうかを判定し，数え上げる．
-最悪計算量は，O(H ^ (3) * W ^ (3)) < 10 ^ 7 となり，高速．
-*/
-#include<iostream>
-#include<vector>
-#include<cassert>
-#define rep(i, n) for(i = 0;i < (int)(n);i++)
+// AtCoder template
+#include <iostream>
+#include <string>
+#include <vector>
 using namespace std;
-typedef long long ll;
-typedef unsigned long long ull;
 
-int h, w;
+#define rep(i,n) for(int i = 0 ; i < (int)(n) ; i++)
+
+int grid_find(vector<string>& s , int h1 , int h2 , int w1 , int w2){
+    for(int i = h1 ; i <= h2 ; i++){
+        for(int j = w1 ; j <= w2 ; j++){
+            if(s.at(i).at(j) != s.at(h1+h2-i).at(w1+w2-j)){
+                return 0;
+            }
+        }
+    }
+    return 1;
+}
 
 int main(){
-    int i, j, k, ii;
-    scanf("%d%d", &h, &w);
-    
-    vector<string> s(h);
-    rep(i, h)cin >> s[i];
+    int h , w ;
+    cin >> h >> w;
 
-    auto isSpiral = [&](int sy, int sx, int gy, int gx) -> bool{
-        int i, j;
-        for(i = sy;i <= gy;i++)for(j = sx;j <= gx;j++)
-            if(s[i][j] != s[sy + gy - i][sx + gx - j])return false;
-        return true;
-    };
-    int ans = 0;
-    rep(i, h)rep(j, i + 1)rep(k, w)rep(ii, k + 1){
-        ans += isSpiral(
-            /* sy = */ j, 
-            /* sx = */ ii, 
-            /* gy = */ i, 
-            /* gx = */ k
-        );
+    vector<string> s(h);
+    rep(i,h){
+        cin >> s.at(i);
     }
-    printf("%d\n", ans);
-    return 0;
+
+    int ans = 0;
+    for(int h1 = 0 ; h1 < h ; h1++){
+        for(int h2 = h1 ; h2 < h ; h2++){
+            for(int w1 = 0 ; w1 < w ; w1++){
+                for(int w2 = w1 ; w2 < w ; w2++){
+                    if(grid_find( s, h1, h2 , w1, w2))ans++;
+                }
+            }
+        }
+    }
+
+    cout << ans << endl;
+
 }
