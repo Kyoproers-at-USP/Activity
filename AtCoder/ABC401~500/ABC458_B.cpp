@@ -1,38 +1,56 @@
-/*アルゴリズムと工夫点(Count Adjacent Cells/CPU: 1 ms Memory: 3856 KB  Length: 840 B)
-y ∈ [1, H], x ∈ [1, W] の各マスの隣接数を，その隣接する座標の内グリッド内部に存在する数として計算すればよい．
-*/
-#include<iostream>
-#include<cassert>
-#define rep(i, n) for(i = 0;i < (int)(n);i++)
+// AtCoder template
+#include <algorithm>
+#include <iostream>
+#include <string>
+#include <vector>
 using namespace std;
-typedef long long ll;
-typedef unsigned long long ull;
 
-int h, w;
+#define rep(i,n) for(int i = 0 ; i < (int)(n) ; i++)
 
 int main(){
-    int i, j, k;
-    scanf("%d%d", &h, &w);
+    int h , w;
+    cin >> h >> w;
+    //vector<vector<int>> x(h,vector<int>(w));
 
-    const int dy[] = {-1, 0, 1, 0};
-    const int dx[] = {0, 1, 0, -1}, MAX_D = 4;
-    rep(i, h){
-        rep(j, w - 1){
-            int ans = 0;
-            rep(k, MAX_D){
-                int y = i + dy[k];
-                int x = j + dx[k];
-                ans += 0 <= y && y < h && 0 <= x && x < w;
-            }
-            printf("%d ", ans);
-        }
-        int ans = 0;
-        rep(k, MAX_D){
-            int y = i + dy[k];
-            int x = j + dx[k];
-            ans += 0 <= y && y < h && 0 <= x && x < w;
-        }
-        printf("%d\n", ans);
+    //もし1つしかマスが無いなら0を出力．
+    if(h == 1 && w == 1){
+        cout << 0 << endl;
+        return 0;
     }
-    return 0;
+
+    //hかwが1なら，隣接数は始点と終点が1で挟まれている部分は2になるから，条件分岐で直接出す．
+    // wが1のパターンは改行を行う．
+    if(h == 1 || w == 1){
+        rep(i,max(h,w)){
+            if(i == 0 || i == max(h,w) - 1){
+                cout << 1 << " ";
+                if(h == max(h,w))cout << endl;
+                continue;
+            }
+            cout << 2 << " " ;
+            if(h == max(h,w))cout << endl;
+        }
+        return 0;
+    }
+
+    //h != 1 , w != 1 (h > 0 , w > 0)で，グリッドの隅のマスは必ず2になり，
+    //隅にオセロの要領で挟まれたグリッドは3になる．それ以外のグリッドは4になる．
+    rep(i,h){
+        rep(j,w){
+            if(i == 0 || i == h-1){
+                if(j == 0 || j == w-1 ){
+                    cout << 2 << " " ;
+                    continue;
+                }
+                cout << 3 << " " ;
+                continue;
+            }
+            if(j == 0 || j == w-1){
+                cout << 3 << " ";
+                continue;
+            }
+            cout << 4 << " " ;
+        }
+        cout << endl;
+    }
 }

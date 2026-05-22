@@ -1,19 +1,22 @@
-/*アルゴリズムと工夫点(Chompers/CPU: 1 ms Memory: 3652 KB  Length: 308 B)
-取り除かれていない部分だけを，逐次出力すればよい．
-*/
-#include<iostream>
-#include<cassert>
-#define rep(i, n) for(i = 0;i < (int)(n);i++)
+// AtCoder template
+#include <iostream>
+#include <string>
+#include <vector>
 using namespace std;
-typedef long long ll;
-typedef unsigned long long ull;
 
-string s;
-int n;
+#define rep(i,n) for(int i = 0 ; i < (int)(n) ; i++)
 
 int main(){
-    cin >> s >> n;
-    for(int i = n;i < s.length() - n;i++)putchar(s[i]);
-    puts("");
-    return 0;
+    string s;
+    int n;
+    cin >> s ;
+    cin >> n;
+
+    int a = s.size();
+
+    for(int i = n  ; i < a - n ; i++ ){
+        cout << s.at(i);
+    }
+
+
 }
