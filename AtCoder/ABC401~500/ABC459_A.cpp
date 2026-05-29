@@ -1,20 +1,20 @@
-/*アルゴリズムと工夫点(Hell, World!/CPU: 2 ms Memory: 3812 KB  Length: 364 B)
-言われた通りに解く．
-*/
-#include<iostream>
-#include<cassert>
-#define rep(i, n) for(i = 0;i < (int)(n);i++)
+// AtCoder template
+#include <iostream>
+#include <string>
+#include <vector>
 using namespace std;
-typedef long long ll;
-typedef unsigned long long ull;
 
-int x;
-const string target = "HelloWorld";
+#define rep(i,n) for(int i = 0 ; i < (int)(n) ; i++)
 
 int main(){
-    scanf("%d", &x);
-    for(int i = 0;i < target.size();i++)
-        if(i != x - 1)putchar(target[i]);
-    puts("");
-    return 0;
+    string s = "HelloWorld";
+    int x ;
+    cin >> x;
+
+    rep(i,s.size()){
+        if(i==x-1){
+            continue;
+        }
+        cout << s.at(i);
+    }
 }
