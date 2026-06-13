@@ -1,25 +1,19 @@
-/*アルゴリズムと工夫点(Mod While Positive/CPU: 1 ms Memory: 3828 KB  Length: 371 B)
-言われた通りにシミュレーションをして解く．
-*/
-#include<iostream>
-#include<cassert>
-#define rep(i, n) for(i = 0;i < (int)(n);i++)
+// AtCoder template
+#include <iostream>
+#include <string>
+#include <vector>
 using namespace std;
-typedef long long ll;
-typedef unsigned long long ull;
 
-int n, m;
+#define rep(i,n) for(int i = 0 ; i < (int)(n) ; i++)
 
 int main(){
-    scanf("%d%d", &n, &m);
-    
-    int ans = 0;
-    while(m != 0){
-        int x = n % m;
-        m = x;
-        ans++;
-    }
+    int n , m ;
+    cin >> n >> m;
 
-    printf("%d\n", ans);
-    return 0;
+    int answer = 0;
+    while(m != 0){
+        m = n%m;
+        answer++;
+    }
+    cout << answer;
 }
