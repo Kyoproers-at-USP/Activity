@@ -10,13 +10,13 @@ int main(){
     int n , l;
     cin >> n >> l;
 
-    int sum_passed = 0;
+    int passed_count = 0;
     rep(i,n){
         int a;
         cin >> a;
         if(a>=l){
-            sum_passed++;
+            passed_count++;
         }
     }
-    cout << sum_passed;
+    cout << passed_count << endl;
 }
