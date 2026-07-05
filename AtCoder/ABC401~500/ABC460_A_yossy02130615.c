@@ -1,18 +1,18 @@
 #include <stdio.h>
 
 int main(void) {
-  int N, M;
+  int n, m;
 
-
-  if (scanf("%d %d", &N, &M) != 2) {
-    return 1;
-  }
-
+  scanf("%d%d", &n,&m);
+  
   int t = 0;
 
-
-  while (M != 0) {
-    int x = N % M;
-    M = x;
+  while (m != 0) {
+    int x = n % m;
+    m = x;
     t++;
   }
+
+  printf("%d\n",t);
+  return 0;
+}
