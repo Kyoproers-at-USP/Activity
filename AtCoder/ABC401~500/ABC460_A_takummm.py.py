@@ -1,4 +1,4 @@
-cnt= 0
+cnt = 0
 n, m = map(int, input().split())
 while m != 0:
     x = n % m
