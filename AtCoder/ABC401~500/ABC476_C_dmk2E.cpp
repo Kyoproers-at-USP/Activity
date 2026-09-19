@@ -1,7 +1,7 @@
 /*アルゴリズムと工夫点(Third Largest Number/CPU: 52 ms Memory: 5588 KB  Length: 470 B)
 3つの最大値を保持しつつ，範囲を広げていくシミュレーションで解く．
 実装を楽にするため優先度付きキューを利用しているが，
-最悪計算量は O(N * log2(N)) < 10 ^ 7 となり高速．
+最悪計算量は O(N * log2(3)) < 10 ^ 6 となり十分高速．
 */
 #include<iostream>
 #include<queue>

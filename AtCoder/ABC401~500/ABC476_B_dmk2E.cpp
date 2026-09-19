@@ -1,5 +1,5 @@
 /*アルゴリズムと工夫点(Wild Card/CPU: 1 ms Memory: 3620 KB  Length: 354 B)
-前の文字から順に条件判定して解く．
+前の文字から順に適切な条件判定をして解く．
 */
 #include<iostream>
 #include<cassert>
