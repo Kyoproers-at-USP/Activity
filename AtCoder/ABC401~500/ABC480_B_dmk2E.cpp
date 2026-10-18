@@ -1,4 +1,4 @@
-/*アルゴリズムと工夫点(Invalid Vote/CPU: 1 ms Memory: 3872 KB  Length: 1130 B)
+/*アルゴリズムと工夫点(Invalid Vote/CPU: 1 ms Memory: 3896 KB  Length: 1136 B)
 M 個の投票用紙に書かれた名前一つ一つを固定し， N 人のいずれかの有効な一票となるか全探索して解く．
 最悪計算量は，O(N * M * max(S_{i}, T_{i})) < 10 ^ 6 となり，十分高速．
 */
@@ -26,7 +26,7 @@ int main(){
     vector<string> names(n);
     rep(i, n)cin >> names[i];
 
-    int NIL = -1;
+    const int NIL = -1;
     auto calc = [&](string str) -> int{
         int i;
         
